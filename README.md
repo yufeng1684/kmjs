@@ -1,2 +1,5 @@
-# kmjs
-Knowledge graph of Java server R&amp;D
+# KMJS
+------
+
+The source code of *Knowledge Map of Java server R&amp;D* with IntelliJ IDEA.
+
