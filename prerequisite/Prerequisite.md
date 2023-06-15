@@ -14,11 +14,13 @@
 
    Download IDEA from JetBrains website. Community edition is enough. 
 
-   ***You should modify maven setting according to Maven configuration below.***
+   ***You should modify maven setting in idea according to Maven configuration below.***
 
    [IntelliJ IDEA ](https://www.jetbrains.com.cn/idea/download/#section=windows)
 
 3. Maven
+
+   The version used is 3.9.2.
 
    Modify conf/settings.xml
 
@@ -55,7 +57,9 @@
 
 4. Tomcat
 
-   Modify 
+   The version used is  9.0.76
+
+   Modify  conf/logging.properties
 
    ```properties
    # display Chinese in log console
@@ -67,7 +71,7 @@
 
 5. Mysql
 
-   Download Community Server is enough.
+   Download Community Server is enough. The version used is 8.0.33.
 
    [MySQL :: Download MySQL Community Server](https://dev.mysql.com/downloads/mysql/)
 
@@ -79,7 +83,7 @@
 
 7. Navicat Premium(optional)
 
-   The software only has 14-days trail.
+   *The software has 14-days trail.*
 
    [Navicat Premium](https://www.navicat.com/en/download/navicat-premium)
 
