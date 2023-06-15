@@ -1,13 +1,13 @@
-package org.yufeng.controller;
+package org.kmjs.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.yufeng.domain.Product;
-import org.yufeng.domain.ResultBean;
-import org.yufeng.exception.CustomException;
+import org.kmjs.domain.Product;
+import org.kmjs.domain.ResultBean;
+import org.kmjs.exception.CustomException;
 
 @Controller
 @RequestMapping("/exception")

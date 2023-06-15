@@ -1,4 +1,4 @@
-package org.yufeng.domain;
+package org.kmjs.domain;
 
 /**
  * 商品信息

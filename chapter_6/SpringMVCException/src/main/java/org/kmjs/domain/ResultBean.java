@@ -1,4 +1,4 @@
-package org.yufeng.domain;
+package org.kmjs.domain;
 /**
  * 返回的实体bean
  */

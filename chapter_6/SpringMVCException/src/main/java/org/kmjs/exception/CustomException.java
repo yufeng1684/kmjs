@@ -1,4 +1,4 @@
-package org.yufeng.exception;
+package org.kmjs.exception;
 
 public class CustomException extends Exception{
     public CustomException() {

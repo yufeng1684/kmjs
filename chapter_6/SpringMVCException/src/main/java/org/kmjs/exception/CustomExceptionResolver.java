@@ -1,11 +1,11 @@
-package org.yufeng.exception;
+package org.kmjs.exception;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Throwables;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
-import org.yufeng.domain.ResultBean;
+import org.kmjs.domain.ResultBean;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
