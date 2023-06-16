@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    <bean id="beanid" scope="prototype" destroy-method="destroy" class="org.kmjs.spring.ProductWtihDisposableBean"/>-->
+<!--    <bean id="beanid" destroy-method="destroy" class="org.kmjs.spring.ProductWtihDisposableBean"/>-->
+    <bean id="beanid" class="org.kmjs.spring.ProductWtihDisposableBean"/>
+</beans>
