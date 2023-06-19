@@ -1,0 +1,10 @@
+server:
+  port: 18001
+  tomcat:
+    threads:
+      min-spare: 16
+      max: 64
+spring:
+  config:
+    activate:
+      on-profile: dev
