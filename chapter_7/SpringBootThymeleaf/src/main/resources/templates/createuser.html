@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>create user</title>
+</head>
+<body>
+<div>
+  <label style="font-size: 18px" th:text="创建用户"></label>
+</div>
+<form th:action="@{/page/save}" method="post" th:object="${user}" style="width: 600px">
+  <fieldset>
+    <p>
+      <label for="name" style="font-size: 18px" th:text="'名字： '"></label>
+      <input type="text" id="name" name="name" tabindex="1"></input>
+    </p>
+    <p>
+      <label for="age" style="font-size: 18px" th:text="'年龄： '"></label>
+      <input type="text" id="age" name="age" tabindex="2"></input>
+    </p>
+    <p>
+      <label for="phoneNum" style="font-size: 18px" th:text="'电话号码： '"></label>
+      <input type="text" id="phoneNum" name="phoneNum" tabindex="3"></input>
+    </p>
+    <p>
+      <label for="address" style="font-size: 18px" th:text="'住址： '"></label>
+      <input type="text" id="address" name="address" tabindex="4"></input>
+    </p>
+    <p id="buttons">
+        <input id="submit" type="submit" tabindex="5" th:value="创建"></input>
+        <input id="reset" type="reset" tabindex="6" th:value="取消"></input>
+    </p>
+  </fieldset>
+</form>
+</body>
+</html>
