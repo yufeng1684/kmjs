@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>create user</title>
+</head>
+<body>
+<div>
+  <label style="font-size: 18px" th:text="创建用户"></label>
+</div>
+<form th:action="@{/page/save}" method="post" th:object="${user}" style="width: 600px">
+  <fieldset>
+    <p>
+      <label for="name" style="font-size: 18px" th:text="'名字： '"></label>
+      <input type="text" id="name" name="name" tabindex="1" th:value="*{name}"></input>
+      <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
+    </p>
+    <p>
+      <label for="age" style="font-size: 18px" th:text="'年龄： '"></label>
+      <input type="number" id="age" name="age" tabindex="2" th:field="*{age}"></input>
+      <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></td>
+    </p>
+    <p>
+      <label for="phoneNum" style="font-size: 18px" th:text="'电话号码： '"></label>
+      <input type="number" id="phoneNum" name="phoneNum" tabindex="3" th:field="*{phoneNum}"></input>
+      <td th:if="${#fields.hasErrors('phoneNum')}" th:errors="*{phoneNum}"></td>
+    </p>
+    <p>
+      <label for="address" style="font-size: 18px" th:text="'住址： '"></label>
+      <input type="text" id="address" name="address" tabindex="4"  th:field="*{address}"></input>
+      <td th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></td>
+    </p>
+    <p id="buttons">
+        <input id="submit" type="submit" tabindex="5" th:value="创建"></input>
+        <input id="reset" type="reset" tabindex="6" th:value="取消"></input>
+    </p>
+  </fieldset>
+</form>
+</body>
+</html>
