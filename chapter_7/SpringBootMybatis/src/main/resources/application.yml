@@ -1,0 +1,14 @@
+server:
+  port: 18089
+spring:
+  application:
+    name: SpringBootMybatis
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/kmjs_springboot?characterEncoding=utf-8
+    username: root
+    password: .J;/;vqXe2ic
+mybatis:
+  type-aliases-package: org.kmjs.springbootmybatis.*.model
+  mapper-locations: classpath:/mybatis/sqlmap/*.xml
+  config-location: classpath:/mybatis/mybatis-config.xml
