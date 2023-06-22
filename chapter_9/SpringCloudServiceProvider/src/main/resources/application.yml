@@ -9,3 +9,17 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:18001/eureka
+
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "health, info"
+
+info:
+  author: org
+  book: kmjs
+  project: service provider demo
