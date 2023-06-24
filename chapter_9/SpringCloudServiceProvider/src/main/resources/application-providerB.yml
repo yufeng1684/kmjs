@@ -1,5 +1,5 @@
 server:
-  port: 18010
+  port: 18011
 spring:
   application:
     name: service-provider
@@ -20,6 +20,8 @@ eureka:
   client:
     service-url:
       defaultZone: http://eureka-serverA:18001/eureka,http://eureka-serverB:18002/eureka
+#    fetch-registry: false
+#    register-with-eureka: false
 
 management:
   info:
@@ -34,9 +36,3 @@ info:
   author: org
   book: kmjs
   project: service provider demo
-
-#logging:
-#  level:
-#    root: info
-#  pattern:
-#    console: "%d -- %msg%n"
