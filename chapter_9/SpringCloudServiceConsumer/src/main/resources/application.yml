@@ -19,9 +19,12 @@ management:
   endpoints:
     web:
       exposure:
-        include: "health, info"
+        include: "health, info, hystrix.stream"
 
 info:
   author: org
   book: kmjs
   project: service consumer demo
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "localhost"

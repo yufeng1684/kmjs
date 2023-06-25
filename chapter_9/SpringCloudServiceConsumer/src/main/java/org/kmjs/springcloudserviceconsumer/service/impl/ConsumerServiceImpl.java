@@ -1,5 +1,6 @@
 package org.kmjs.springcloudserviceconsumer.service.impl;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.kmjs.springcloudserviceconsumer.domian.DomainUser;
 import org.kmjs.springcloudserviceconsumer.feigns.ConsumerFeign;
 import org.kmjs.springcloudserviceconsumer.result.Result;
@@ -45,6 +46,7 @@ public class ConsumerServiceImpl implements ConsumerService {
 //        }
 //    }
     @Override
+    @HystrixCommand(fallbackMethod = "getUserFallback")
     public DomainUser getUserFromProvider(int id) {
         Result<DomainUser> result = consumerFeign.getUser(id);
         if (result.getResultCode() == 200) {
@@ -62,5 +64,13 @@ public class ConsumerServiceImpl implements ConsumerService {
         } else {
             return 0;
         }
+    }
+
+    public DomainUser getUserFallback(int id) {
+        DomainUser user = new DomainUser();
+        user.setName("hystrix");
+        user.setAge(-1);
+        user.setAddress("hystrix fall back");
+        return user;
     }
 }
