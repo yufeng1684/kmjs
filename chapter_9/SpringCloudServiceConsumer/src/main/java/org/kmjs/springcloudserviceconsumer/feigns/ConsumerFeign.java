@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(value="SERVICE-PROVIDER")
+@FeignClient(value="SERVICE-PROVIDER", fallback = ConsumerFeignFallBack.class)
 public interface ConsumerFeign {
 	@RequestMapping(value="/user/{id}",method=RequestMethod.GET)
 	public Result<DomainUser> getUser(@RequestParam("id") int id);

@@ -25,6 +25,26 @@ info:
   author: org
   book: kmjs
   project: service consumer demo
+
 hystrix:
   dashboard:
     proxy-stream-allow-list: "localhost"
+  threadpool:
+    default:
+      coreSize: 20
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
+          semaphore:
+            maxConcurrentRequests: 2000
+          thread:
+            timeoutInMilliseconds: 2000
+#      circuitBreaker:
+#        requestVolumeThreshold: 1
+
+
+feign:
+  circuit breaker:
+    enabled: true

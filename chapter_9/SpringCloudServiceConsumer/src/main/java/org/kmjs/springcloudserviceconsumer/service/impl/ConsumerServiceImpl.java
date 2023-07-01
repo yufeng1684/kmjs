@@ -46,7 +46,7 @@ public class ConsumerServiceImpl implements ConsumerService {
 //        }
 //    }
     @Override
-    @HystrixCommand(fallbackMethod = "getUserFallback")
+    @HystrixCommand(commandKey = "Consumer" , fallbackMethod = "getUserFallback")
     public DomainUser getUserFromProvider(int id) {
         Result<DomainUser> result = consumerFeign.getUser(id);
         if (result.getResultCode() == 200) {
