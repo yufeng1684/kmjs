@@ -1,5 +1,6 @@
 package org.kmjs.springcloudserviceprovider.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.kmjs.springcloudserviceprovider.domain.DomainUser;
 import org.kmjs.springcloudserviceprovider.result.Result;
 import org.kmjs.springcloudserviceprovider.result.ResultCode;
@@ -19,6 +20,7 @@ public class UserController {
     private UserService userService;
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
+    @HystrixCommand(commandKey = "provider-getuser", groupKey = "provider-usercontroller", fallbackMethod = "getUserFallBack")
     @RequestMapping(value = "/{Id}", method = RequestMethod.GET)
     public Result<DomainUser> getUser(@PathVariable("Id") int id){
         DomainUser domainUser =  userService.getUser(id);
@@ -41,6 +43,11 @@ public class UserController {
         } else {
             result = new Result<>(ResultCode.Not_Found);
         }
+        return result;
+    }
+
+    public Result<DomainUser> getUserFallBack(int id){
+        Result<DomainUser> result = new Result<>(ResultCode.Unavailable);
         return result;
     }
 }
