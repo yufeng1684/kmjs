@@ -8,6 +8,20 @@ spring:
     url: jdbc:mysql://localhost:3306/kmjs_springboot?characterEncoding=utf-8
     username: root
     password: .J;/;vqXe2ic
+  zipkin:
+    enabled: true
+    sender:
+      type: web
+    base-url: http://localhost:9411
+  sleuth:
+    enabled: true
+    rxjava:
+      schedulers:
+        hook:
+          enabled: false
+    sampler:
+      percentage: 1.0
+
 mybatis:
   type-aliases-package: org.kmjs.springcloudserviceprovider.*.model
   mapper-locations: classpath:/mybatis/sqlmap/*.xml
