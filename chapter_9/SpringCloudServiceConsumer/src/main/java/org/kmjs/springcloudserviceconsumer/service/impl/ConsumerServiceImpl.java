@@ -5,6 +5,8 @@ import org.kmjs.springcloudserviceconsumer.domian.DomainUser;
 import org.kmjs.springcloudserviceconsumer.feigns.ConsumerFeign;
 import org.kmjs.springcloudserviceconsumer.result.Result;
 import org.kmjs.springcloudserviceconsumer.service.ConsumerService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.core.ParameterizedTypeReference;
 //import org.springframework.http.HttpMethod;
@@ -14,6 +16,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ConsumerServiceImpl implements ConsumerService {
+    private static final Logger log = LoggerFactory.getLogger(ConsumerServiceImpl.class);
+
     @Autowired
 //    private RestTemplate restTemplate;
     private ConsumerFeign consumerFeign;
@@ -49,6 +53,7 @@ public class ConsumerServiceImpl implements ConsumerService {
     @HystrixCommand(commandKey = "Consumer" , fallbackMethod = "getUserFallback")
     public DomainUser getUserFromProvider(int id) {
         Result<DomainUser> result = consumerFeign.getUser(id);
+        log.info(result.toString());
         if (result.getResultCode() == 200) {
             return (DomainUser) result.getData();
         } else {

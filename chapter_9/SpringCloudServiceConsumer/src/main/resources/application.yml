@@ -46,7 +46,11 @@ hystrix:
 #      circuitBreaker:
 #        requestVolumeThreshold: 1
 
-
 feign:
   circuit breaker:
     enabled: true
+
+logging:
+  level:
+    root: info
+#    org.springframework.cloud.sleuth: DEBUG

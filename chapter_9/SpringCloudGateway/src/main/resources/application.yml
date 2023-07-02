@@ -6,6 +6,7 @@ spring:
     name: gateway
   cloud:
     gateway:
+      api-prefix:
       discovery:
         locator:
           #是否与服务发现组件进行结合,通过service-id(必须设置成大写)转发到具体的服务实例。默认false
@@ -25,15 +26,15 @@ spring:
         - id: consumer
           uri: lb://service-consumer
           predicates:
-            - Path=/service-consumer/**
-          filters:
-            - StripPrefix=1
+            - Path=/consumer/**
+#          filters:
+#            - StripPrefix=1
         - id: provider
           uri: lb://service-provider
           predicates:
-            - Path=/service-provider/**
-          filters:
-            - StripPrefix=1
+            - Path=/user/**
+#          filters:
+#            - StripPrefix=1
 
 
 eureka:
