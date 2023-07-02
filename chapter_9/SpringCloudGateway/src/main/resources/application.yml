@@ -1,0 +1,37 @@
+server:
+  port: 18040
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+eureka:
+  instance:
+    hostname: gateway
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true
+    metadata-map:
+      cluster: main
+  client:
+    service-url:
+      defaultZone: http://eureka-serverA:18001/eureka/,http://eureka-serverB:18002/eureka/
+
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "health, info"
+
+info:
+  author: org
+  book: kmjs
+  project: service gateway demo
