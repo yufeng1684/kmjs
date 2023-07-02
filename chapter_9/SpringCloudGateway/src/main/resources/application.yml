@@ -13,6 +13,28 @@ spring:
           enabled: true
           #配置之后访问时service-id无需大写
           lower-case-service-id: true
+#      # 单实例路由， 不注册到eureka
+#      routes:
+#        - id: consumer
+#          uri: http://localhost:18020
+#          predicates:
+#            - Path=/service-consumer/**
+#          filters:
+#            - StripPrefix=1
+      routes:
+        - id: consumer
+          uri: lb://service-consumer
+          predicates:
+            - Path=/service-consumer/**
+          filters:
+            - StripPrefix=1
+        - id: provider
+          uri: lb://service-provider
+          predicates:
+            - Path=/service-provider/**
+          filters:
+            - StripPrefix=1
+
 
 eureka:
   instance:
